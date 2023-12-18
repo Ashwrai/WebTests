@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 public class SignUpSteps {
     WebDriver driver;
@@ -142,6 +143,6 @@ public class SignUpSteps {
 
     @Then("the user account is created")
     public void theUserAccountIsCreated() {
-
+        Assert.assertEquals();
     }
 }
