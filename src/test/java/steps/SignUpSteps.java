@@ -7,6 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class SignUpSteps {
     WebDriver driver;
@@ -17,132 +21,103 @@ public class SignUpSteps {
         driver = new FirefoxDriver();
         driver.navigate().to("https://automationexercise.com/login");
     }
+    @When("the user enters name in the name input")
+    public void theUserEntersNameInTheNameInput() {
+        driver.findElement(By.cssSelector("input[data-qa='signup-name'")).sendKeys("jhon");
+    }
 
-    @When("the user clicks the name box")
-    public void theUserClicksTheNameBox() {
+    @And("the user enters email in the email input")
+    public void theUserEntersEmailInTheEmailInput() {
+        int number = 0;
+        try {
+            File emailNumber = new File("emailNumber.txt");
+            Scanner scanner = new Scanner(emailNumber);
+
+            while (scanner.hasNextLine()) {
+                number = scanner.nextInt();
+            }
+            String email = "jhon+" + number + "@gmail.com";
+            driver.findElement(By.cssSelector("input[data-qa='signup-email'")).sendKeys(email);
+
+            try {
+                FileWriter increaseNumber = new FileWriter("emailNumber.txt", false);
+                increaseNumber.write(++number);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
 
     }
 
-    @And("the user enters name in the box")
-    public void theUserEntersNameInTheBox() {
-
-    }
-
-    @And("the user clicks the email box")
-    public void theUserClicksTheEmailBox() {
-
-    }
-
-    @And("the user enters email in the box")
-    public void theUserEntersEmailInTheBox() {
-        
-    }
-
-    @And("the user clicks sign up box")
-    public void theUserClicksSignUpBox() {
+    @And("the user clicks sign up button")
+    public void theUserClicksSignUpButton() {
     }
 
     @Then("the sign up form appears")
     public void theSignUpFormAppears() {
-        
+        driver.close();
+    }
+
+    @And("the user enters repeated email in the email input")
+    public void theUserEntersRepeatedEmailInTheEmailInput() {
+    }
+
+    @Then("the invalid email message appears")
+    public void theInvalidEmailMessageAppears() {
+        driver.close();
     }
 
     @When("the user selects title")
     public void theUserSelectsTitle() {
-        
     }
 
-    @And("the user clicks the password box")
-    public void theUserClicksThePasswordBox() {
-        
+    @And("the user enters password in the password input")
+    public void theUserEntersPasswordInThePasswordInput() {
     }
 
-    @And("the user enters password in the box")
-    public void theUserEntersPasswordInTheBox() {
-        
+    @And("the user enters First name in the First name input")
+    public void theUserEntersFirstNameInTheFirstNameInput() {
     }
 
-    @And("the user clicks the First name box")
-    public void theUserClicksTheFirstNameBox() {
-        
+    @And("the user enters Last name in the Last name input")
+    public void theUserEntersLastNameInTheLastNameInput() {
     }
 
-    @And("the user enters First name in the box")
-    public void theUserEntersFirstNameInTheBox() {
-        
-    }
-
-    @And("the user clicks the Last name box")
-    public void theUserClicksTheLastNameBox() {
-        
-    }
-
-    @And("the user enters Last name in the box")
-    public void theUserEntersLastNameInTheBox() {
-        
-    }
-
-    @And("the user clicks the Address box")
-    public void theUserClicksTheAddressBox() {
-        
-    }
-
-    @And("the user enters Address in the box")
-    public void theUserEntersAddressInTheBox() {
-        
+    @And("the user enters Address in the Address input")
+    public void theUserEntersAddressInTheAddressInput() {
     }
 
     @And("the user selects Country")
     public void theUserSelectsCountry() {
-        
     }
 
-    @And("the user clicks the State box")
-    public void theUserClicksTheStateBox() {
+    @And("the user enters State in the State input")
+    public void theUserEntersStateInTheStateInput() {
     }
 
-    @And("the user enters State in the box")
-    public void theUserEntersStateInTheBox() {
-        
+    @And("the user enters City in the City input")
+    public void theUserEntersCityInTheCityInput() {
     }
 
-    @And("the user clicks the City box")
-    public void theUserClicksTheCityBox() {
-        
+    @And("the user enters Zipcode in the Zipcode input")
+    public void theUserEntersZipcodeInTheZipcodeInput() {
     }
 
-    @And("the user enters City in the box")
-    public void theUserEntersCityInTheBox() {
-        
-    }
-
-    @And("the user clicks the Zipcode box")
-    public void theUserClicksTheZipcodeBox() {
-        
-    }
-
-    @And("the user enters Zipcode in the box")
-    public void theUserEntersZipcodeInTheBox() {
-        
-    }
-
-    @And("the user clicks the Mobile Number box")
-    public void theUserClicksTheMobileNumberBox() {
-        
-    }
-
-    @And("the user enters Mobile Number in the box")
-    public void theUserEntersMobileNumberInTheBox() {
-        
-    }
-
-    @And("the user clicks final sign up box")
-    public void theUserClicksFinalSignUpBox() {
-
+    @And("the user enters Mobile Number in the Mobile Number input")
+    public void theUserEntersMobileNumberInTheMobileNumberInput() {
     }
 
     @Then("the user account is created")
     public void theUserAccountIsCreated() {
-        Assert.assertEquals();
+        driver.close();
+    }
+
+    @Then("the error message 'Fill out this field.' appears")
+    public void theErrorMessageFillOutThisFieldAppears() {
+
     }
 }
