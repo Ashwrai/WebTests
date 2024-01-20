@@ -87,12 +87,7 @@ public class signUpSteps {
         Assert.assertEquals(errorMessage.getText(), "Email Address already exist!");
     }
 
-    @When("the user selects title")
-    public void theUserSelectsTitle() {
-        driver.findElement(By.id("id_gender1")).click();
-    }
-
-    @And("the user enters password in the password input")
+    @When("the user enters password in the password input")
     public void theUserEntersPasswordInThePasswordInput() {
         driver.findElement(By.id("password")).sendKeys("jhon");
     }
@@ -158,4 +153,9 @@ public class signUpSteps {
         button.click();
     }
 
+    @Then("the user is on signup page")
+    public void theUserIsOnSignupPage() {
+        String title = driver.getTitle();
+        Assert.assertEquals(title, "Automation Exercise - Signup");
+    }
 }

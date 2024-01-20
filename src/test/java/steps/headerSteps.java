@@ -73,7 +73,7 @@ public class headerSteps {
     }
 
     @Then("the user is on signup login page")
-    public void theUserIsLoggedOutAndRedirectedToTheHomePage() {
+    public void theUserIsOnSignupLoginPage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/login"));
         String title = driver.getTitle();
@@ -97,7 +97,7 @@ public class headerSteps {
             driver.findElement(By.cssSelector("input[data-qa='login-email'")).sendKeys(email);
 
             try {
-                number++;
+                number += 2;
                 BufferedWriter writer = new BufferedWriter(new FileWriter("delete.txt", false));
                 writer.write(Integer.toString(number));
                 writer.close();

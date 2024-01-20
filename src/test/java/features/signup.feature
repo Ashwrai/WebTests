@@ -20,8 +20,7 @@ Feature: Sign up
     And the user enters email in the email input
     And the user clicks sign up button
     Then the sign up form appears
-    When the user selects title
-    And the user enters password in the password input
+    When the user enters password in the password input
     And the user enters First name in the First name input
     And the user enters Last name in the Last name input
     And the user enters Address in the Address input
@@ -42,4 +41,4 @@ Feature: Sign up
     And the user clicks sign up button
     Then the sign up form appears
     When the user clicks create account button
-    Then the user is on signup login page
+    Then the user is on signup page
