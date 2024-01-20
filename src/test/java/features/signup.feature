@@ -4,6 +4,7 @@ Feature: Sign up
 # Scenarios include registration with a valid email, handling repeated emails, successful registration,
 # and detecting and handling incomplete registrations.
 
+  @selenium
   Scenario: Invalid Email
 
     Given the user is in the sign up page
@@ -11,7 +12,6 @@ Feature: Sign up
     And the user enters repeated email in the email input
     And the user clicks sign up button
     Then the invalid email message appears
-    And close
 
   Scenario: Successful Sign Up
 
@@ -31,7 +31,8 @@ Feature: Sign up
     And the user enters Mobile Number in the Mobile Number input
     And the user clicks create account button
     Then the user account is created
-    And close
+    And the user clicks continue button
+    Then the user is logged in
 
   Scenario: Incomplete Sign Up
 
@@ -41,5 +42,4 @@ Feature: Sign up
     And the user clicks sign up button
     Then the sign up form appears
     When the user clicks create account button
-    Then the user stays at the same page
-    And close
+    Then the user is on signup login page

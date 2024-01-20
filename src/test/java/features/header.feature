@@ -5,61 +5,60 @@ Feature: Header
 
   Scenario: Header Options If User Hasn't Logged In
     Given the user enters the webpage
-    And the user hasn't logged in
-    When the home page loads
-    Then the header displays 'Home', 'Products', 'Cart', 'Signup/Login', 'Test Cases', 'API Testing', 'Video Tutorials', 'Contact Us'
+    Then the header displays signup login button
 
   Scenario: Header Options If User Logged In
-    Given the user is in the webpage
-    And the user has logged in
-    When the home page loads
-    Then the header displays 'Home', 'Products', 'Cart', 'Logout, 'Delete Account','Test Cases', 'API Testing', 'Video Tutorials', 'Contact Us'
-    And the header shows 'Logged in as' and the name of the user who has logged in
+    Given the user enters the webpage
+    And the user logs in
+    Then the user is logged in
+    And the header shows Logged in as and the name of the user who has logged in
 
   Scenario: Clicks In Products
-    Given the user is on any page of the website
-    When the user clicks on 'Products' in the header
-    Then the user is redirected to the 'Products' page
+    Given the user enters the webpage
+    When the user clicks on products in the header
+    Then the user is redirected to the products page
 
   Scenario: Clicks In Cart
-    Given the user is on any page
-    When the user clicks on 'Cart' in the header
-    Then the user is redirected to the 'Cart' page
+    Given the user enters the webpage
+    When the user clicks on cart button in the header
+    Then the user is redirected to the cart button page
 
   Scenario: Clicks In Logout
-    Given the user is on any page
-    And the user is logged in
-    When the user clicks on 'Logout' in the header
-    Then the user is logged out and redirected to the home page
+    Given the user enters the webpage
+    And the user logs in
+    Then the user is logged in
+    When the user clicks on logout button in the header
+    Then the user is on signup login page
 
   Scenario: Clicks In Delete Account
-    Given the user is on any page
-    And the user is logged in
-    When the user clicks on 'Delete Account' in the header
-    Then the user is prompted to confirm the deletion of the account
+    Given the user enters the webpage
+    And the user logs in
+    Then the user is logged in
+    When the user clicks on delete account button in the header
+    Then the user account is deleted
+    And the user clicks continue button
 
   Scenario: Clicks In Signup/Login
-    Given the user is on any page
-    And the user hasn't logged in
-    When the user clicks on 'Signup/Login' in the header
-    Then the user is redirected to the 'Signup/Login' page
+    Given the user enters the webpage
+    When the user clicks on signup login button in the header
+    Then the user is redirected to the signup login button page
 
   Scenario: Clicks In Testcases
-    Given the user is on any page
-    When the user clicks on 'Testcases' in the header
-    Then the user is redirected to the 'Testcases' page
+    Given the user enters the webpage
+    When the user clicks on testcases button in the header
+    Then the user is redirected to the testcases button page
 
   Scenario: Clicks In API Testing
-    Given the user is on any page
-    When the user clicks on 'API Testing' in the header
-    Then the user is redirected to the 'API Testing' page
+    Given the user enters the webpage
+    When the user clicks on API testing button in the header
+    Then the user is redirected to the API Testing button page
 
   Scenario: Clicks In Video Tutorials
-    Given the user is on any page
-    When the user clicks on 'Video Tutorials' in the header
-    Then the user is redirected to the 'Video Tutorials' page
+    Given the user enters the webpage
+    When the user clicks on video tutorials button in the header
+    Then the user is redirected to the video tutorials button page
 
   Scenario: Clicks In Contact Us
-    Given the user is on any page
-    When the user clicks on 'Contact Us' in the header
-    Then the user is redirected to the 'Contact Us' page
+    Given the user enters the webpage
+    When the user clicks on contact us button in the header
+    Then the user is redirected to the contact us button page

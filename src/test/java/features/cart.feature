@@ -8,11 +8,13 @@ Feature: Cart
     Then the cart is empty
     And the page shows 'Cart is empty! Click here to buy products.'
     And the user can click on 'here' to be redirected to the 'Products' section
+
   Scenario: Remove Product From The Cart
     Given the user is looking his cart
     And the user has products in the cart
     When the user clicks the delete button of a specific product in the cart
     Then the product is removed from the cart
+
   Scenario: Checkout without having logged in
     Given the user is looking his cart
     And the user has products in the cart
@@ -24,6 +26,7 @@ Feature: Cart
     When the user clicks on 'Continue On Cart'
     Then the popup closes
     And the user continues on 'Cart'
+
   Scenario: Checkout with the user identified
     Given the user is logged in
     And the user is on his cart with some products

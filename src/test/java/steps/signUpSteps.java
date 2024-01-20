@@ -7,10 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -19,16 +16,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Objects;
 import java.util.Scanner;
 
-public class SignUpSteps {
-    WebDriver driver;
+public class signUpSteps {
 
+    WebDriver driver;
+    public signUpSteps() {
+        driver = Steps.startBrowser();
+    }
     @Given("the user is in the sign up page")
     public void theUserIsInTheSignUpPage() {
-        System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
-        driver = new FirefoxDriver();
         driver.navigate().to("https://automationexercise.com/login");
     }
     @When("the user enters name in the name input")
@@ -86,8 +83,7 @@ public class SignUpSteps {
     @Then("the invalid email message appears")
     public void theInvalidEmailMessageAppears() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("p[style='color: red;']")));
-        WebElement errorMessage = driver.findElement(By.cssSelector("p[style='color: red;']"));
+        WebElement errorMessage = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("p[style='color: red;']")));
         Assert.assertEquals(errorMessage.getText(), "Email Address already exist!");
     }
 
@@ -114,16 +110,6 @@ public class SignUpSteps {
     @And("the user enters Address in the Address input")
     public void theUserEntersAddressInTheAddressInput() {
         driver.findElement(By.id("address1")).sendKeys("Wallstreet Avenue, 77");
-    }
-
-    @And("the user selects Country")
-    public void theUserSelectsCountry() {
-        WebElement selector = driver.findElement(By.id("country"));
-
-        Select select = new Select(selector);
-
-        select.selectByVisibleText("United States");
-
     }
 
     @And("the user enters State in the State input")
@@ -156,22 +142,20 @@ public class SignUpSteps {
 
     @Then("the user stays at the same page")
     public void theUserStaysAtTheSamePage() {
-        String expectedUrl = "https://automationexercise.com/signup";
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.urlToBe(expectedUrl));
-        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
+        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/signup"));
+        String title = driver.getTitle();
+        Assert.assertEquals(title, "Automation Exercise - Signup / Login");
     }
+
 
     @And("the user clicks create account button")
     public void theUserClicksCreateAccountButton() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,1395)");
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
         WebElement button = driver.findElement(By.cssSelector("button[data-qa='create-account'"));
         button.click();
     }
-    @Then("close")
-    public void close() {
-        driver.close();
-    }
+
 }

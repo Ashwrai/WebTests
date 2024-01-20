@@ -8,11 +8,13 @@ Feature: Button that shows advertisement
     When the page loads
     Then the advertisement appears automatically
     And the arrow on the button changes to pointing down
+
   Scenario: Hide Advertisement Pressing The Button
     Given the user is on the page with the advertisement displayed
     When the user clicks the button to hide the advertisement
     Then the advertisement hides
     And the arrow on the button changes to pointing up
+
   Scenario: Show Advertisement Pressing The Button
     Given the user is on the page with the advertisement hidden
     When the user clicks the button to show the advertisement

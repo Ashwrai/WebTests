@@ -5,21 +5,21 @@ Feature: Log in
 
   Scenario: Successful Log in
     Given the user is in the log in page
-    When the user enters email in the email input
-    And the user enters password in the password input
-    And the user clicks login button
-    Then the user accesses his account
+    When the user enters email in the login email input
+    And the user enters password in the login password input
+    And the user clicks log in button
+    Then the user is logged in
 
   Scenario: Invalid Email
     Given the user is in the log in page
     When the user enters incorrect email in the email input
-    And the user enters password in the password input
+    And the user enters password in the login password input
     And the user clicks log in button
     Then the invalid email or password message appears
 
   Scenario: Invalid Password
     Given the user is in the log in page
-    When the user enters email in the email input
+    When the user enters email in the login email input
     And the user enters incorrect password in the password input
     And the user clicks log in button
     Then the invalid email or password message appears
