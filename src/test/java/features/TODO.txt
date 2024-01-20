@@ -1,4 +1,0 @@
-Refactor:
-
-- singleton driver
-- Close in every scenario

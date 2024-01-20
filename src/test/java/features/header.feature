@@ -32,16 +32,15 @@ Feature: Header
 
   Scenario: Clicks In Delete Account
     Given the user enters the webpage
-    And the user logs in
+    And the alternative user logs in
     Then the user is logged in
     When the user clicks on delete account button in the header
-    Then the user account is deleted
-    And the user clicks continue button
+    Then the header displays signup login button
 
   Scenario: Clicks In Signup/Login
     Given the user enters the webpage
     When the user clicks on signup login button in the header
-    Then the user is redirected to the signup login button page
+    Then the user is on signup login page
 
   Scenario: Clicks In Testcases
     Given the user enters the webpage

@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,11 @@ public class generalSteps {
 
     public generalSteps() {
         driver = Steps.startBrowser();
+    }
+
+    @Given("the user enters the webpage")
+    public void theUserEntersTheWebpage() {
+        driver.navigate().to("https://automationexercise.com/");
     }
 
     @And("the user is redirected to the home page")
