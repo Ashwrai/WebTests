@@ -4,12 +4,13 @@ Feature: Scroll-To-Top Button
   # hiding, and functionality of the button.
 
   Scenario: Button Appears
-    Given the user is in the top of the webpage
+    Given the user enters the webpage
     When the user starts scrolling down
     And reaches a specific scroll position
     Then the scroll-to-top button becomes visible
 
   Scenario: Button Hides
+    Given the user enters the webpage
     Given the user is not at the top of the webpage
     When the user scrolls up to the top of the webpage
     Then the scroll-to-top button hides

@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,7 +17,9 @@ public class sidebarSteps {
 
     @When("the user clicks on a specific category")
     public void theUserClicksOnASpecificCategory() {
-        driver.findElement(By.cssSelector("a[href=\"#Women\"")).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 555)");
+        driver.findElement(By.cssSelector("a[href=\"#Women\""));
     }
 
     @Then("the page display the subcategories from the selected category")
