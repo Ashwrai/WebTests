@@ -58,16 +58,6 @@ public class generalSteps {
     @Then("the user clicks continue button")
     public void theUserClicksContinueButton(){
         driver.findElement(By.cssSelector("a[data-qa=\"continue-button\"")).click();
-
-        // Used for evading the google vignette ad that blocks the flow of the test
-        while (isAdshown()) {
-            driver.navigate().to("https://automationexercise.com/account_created");
-            driver.findElement(By.cssSelector("a[data-qa=\"continue-button\"")).click();
-        }
     }
 
-    private boolean isAdshown() {
-        String currentUrl = driver.getCurrentUrl();
-        return currentUrl.equals("https://automationexercise.com/account_created#google_vignette");
-    }
 }

@@ -2,6 +2,8 @@ package steps;
 
 import io.cucumber.java.After;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -12,9 +14,10 @@ public class Steps {
     private static WebDriver driver;
 
     public static WebDriver startBrowser() {
-        System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
         if (driver == null) {
-            driver = new FirefoxDriver();
+            ChromeOptions opt = new ChromeOptions();
+            opt.addExtensions(new File("Drivers/ublock.crx"));
+            driver = new ChromeDriver(opt);
         }
         driver.manage().window().maximize();
         return driver;
@@ -23,6 +26,7 @@ public class Steps {
     @After
     public void closeBrowser() {
         driver.close();
+        driver.quit();
         driver = null;
     }
 }

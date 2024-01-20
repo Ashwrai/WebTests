@@ -42,8 +42,6 @@ public class headerSteps {
     @When("the user clicks on products in the header")
     public void theUserClicksOnProductsInTheHeader() {
         driver.findElement(By.cssSelector("a[href=\"/products\"")).click();
-        driver.navigate().to("https://automationexercise.com");
-        driver.findElement(By.cssSelector("a[href=\"/products\"")).click();
     }
 
     @Then("the user is redirected to the products page")
@@ -130,8 +128,6 @@ public class headerSteps {
     @When("the user clicks on testcases button in the header")
     public void theUserClicksOnTestcasesButtonInTheHeader() {
         driver.findElement(By.cssSelector("a[href=\"/test_cases\"")).click();
-        driver.navigate().to("https://automationexercise.com/");
-        driver.findElement(By.cssSelector("a[href=\"/test_cases\"")).click();
     }
 
     @Then("the user is redirected to the testcases button page")
@@ -144,8 +140,6 @@ public class headerSteps {
 
     @When("the user clicks on API testing button in the header")
     public void theUserClicksOnAPITestingButtonInTheHeader() {
-        driver.findElement(By.cssSelector("a[href=\"/api_list\"")).click();
-        driver.navigate().to("https://automationexercise.com/");
         driver.findElement(By.cssSelector("a[href=\"/api_list\"")).click();
     }
 

@@ -146,8 +146,6 @@ public class signUpSteps {
 
     @And("the user clicks create account button")
     public void theUserClicksCreateAccountButton() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0,1395)");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
         WebElement button = driver.findElement(By.cssSelector("button[data-qa='create-account'"));
         button.click();

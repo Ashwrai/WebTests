@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class sidebarSteps {
     WebDriver driver;
 
@@ -17,9 +19,7 @@ public class sidebarSteps {
 
     @When("the user clicks on a specific category")
     public void theUserClicksOnASpecificCategory() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, 555)");
-        driver.findElement(By.cssSelector("a[href=\"#Women\""));
+        driver.findElement(By.cssSelector("a[href=\"#Women\"")).click();
     }
 
     @Then("the page display the subcategories from the selected category")
@@ -31,6 +31,7 @@ public class sidebarSteps {
 
     @When("the user clicks on a specific subcategory")
     public void theUserClicksOnASpecificSubcategory() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
         driver.findElement(By.cssSelector("a[href=\"/category_products/1\"")).click();
     }
 
