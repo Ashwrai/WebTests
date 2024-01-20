@@ -23,6 +23,9 @@ public class generalSteps {
     @Given("the user enters the webpage")
     public void theUserEntersTheWebpage() {
         driver.navigate().to("https://automationexercise.com/");
+        // refresh() to make sure adblock is functioning.
+        // ads are cutting the test flow at random points.
+        driver.navigate().refresh();
     }
 
     @And("the user is redirected to the home page")
