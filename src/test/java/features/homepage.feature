@@ -4,44 +4,39 @@ Feature: Home page
   # the slider, and interaction with featured items.
 
   Scenario: Automatic Image Slider
-    Given the user is on the home page
-    When the page loads
-    Then the images in the slider start sliding automatically
-    When the user hovers over the slider
-    Then the slider stops the automatic sliding
-    And the user can navigate to the next image using the slider controls
+    Given the user enters the webpage
+    And the slider loads
+    Then wait '5000'
+    And the slider changes
+    And wait '5000'
+    And the slider changes again
+    And wait '5000'
+    And the slider completes rotation
+
+  Scenario: The Image Slider stops
+    Given the user enters the webpage
+    And the slider loads
+    Then the user hovers over the slider
+    And wait '6000'
+    And the slider is still the same
 
   Scenario: Manually Image Slider Controls
-    Given the user is on the home page
-    And the user interacted with the slider
-    When the user navigates to the last image manually
-    And the user stops interacting with the slider
-    Then resumes automatic sliding after a brief pause
-    And the slider wraps around to the first image
+    Given the user enters the webpage
+    And the slider loads
+    Then the user clicks next image in the slider
+    And wait '1000'
+    And the next image appears
+    And wait '1000'
+    Then the user clicks previous image in the slider
+    And wait '1000'
+    And the previous image appears
 
-    When the user clicks on a specific navigation control
-    Then the slider displays the corresponding image
-    And the automatic sliding pauses
-
-    When the user stops interacting with the slider
-    Then resumes automatic sliding after a brief pause
-
-  Scenario: Features Items
-    Given the user is on the home page
-    When the user hovers over a product
-    Then the product image is covered by an orange window that shows the product details
-    And the user can click on the 'Add to cart' button
-
-    When the user clicks on the 'Add to cart' button
-    Then the pop up shows 'Your product has been added to cart.'
-    And the user can click on 'Continue Shopping' button
-    And the user can click on 'View Cart' button
-
-    When the user clicks on 'Continue Shopping' button
-    Then the pop up closes
-
-    When the user clicks on 'View Cart' button
-    Then the user is redirected to 'Cart' page
-
-    When the user clicks on 'View Product' button of a specific product
-    Then the user is redirected to the product info page
+  Scenario: Page load
+    Given the user enters the webpage
+    When the header loads
+    And the slider loads
+    And the categories list loads
+    And the brands list loads
+    And the featured products list loads
+    And the recommended products list loads
+    And the footer loads

@@ -59,8 +59,6 @@ public class contactSteps {
     public void theUserClicksTheHomeButton() {
         // \n
         driver.findElement(By.cssSelector("a[class=\"btn btn-success\"")).click();
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Automation Exercise");
     }
 
     @When("the user enters an invalid email in the email input")

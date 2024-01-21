@@ -13,6 +13,7 @@ Feature: Contact
     Then the user clicks OK
     And the message is sent
     And the user clicks the home button
+    Then the user is redirected to the home page
 
   Scenario: Invalid email address
     Given the user is in the contact page
