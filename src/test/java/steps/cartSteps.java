@@ -32,19 +32,10 @@ public class cartSteps {
         driver.findElement(By.cssSelector("p.text-center a[href=\"/products\"")).click();
     }
 
-    @When("the user adds a product")
-    public void theUserAddsAProduct() {
-        driver.findElement(By.cssSelector("a[data-product-id=\"1\"")).click();
-    }
 
     @When("the user clicks the delete button")
     public void theUserClicksTheDeleteButton() {
         driver.findElement(By.cssSelector("a[class=\"cart_quantity_delete\"")).click();
-    }
-
-    @When("the user proceeds to checkout")
-    public void theUserProceedsToCheckout() {
-        driver.findElement(By.cssSelector("a[class=\"btn btn-default check_out\"")).click();
     }
 
     @Then("the checkout popup screen appears")
@@ -78,10 +69,4 @@ public class cartSteps {
         Assert.assertTrue(placeOrder.isDisplayed());;
     }
 
-    @And("the user is in checkout page")
-    public void theUserIsInCheckoutPage() {
-        WebElement placeOrder = driver.findElement(By.cssSelector("a[href=\"/payment\""));
-        Assert.assertNotNull(placeOrder);
-        Assert.assertTrue(placeOrder.isDisplayed());
-    }
 }

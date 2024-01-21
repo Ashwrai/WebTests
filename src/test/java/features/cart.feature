@@ -45,7 +45,7 @@ Feature: Cart
     Then the popup closes
     And the user continues on Cart page
 
-  Scenario: Checkout with the user identified
+  Scenario: Checkout with the user logged in
     Given the user enters the webpage
     When the user logs in
     And the user adds a product

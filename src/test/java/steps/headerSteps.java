@@ -44,42 +44,20 @@ public class headerSteps {
         driver.findElement(By.cssSelector("a[href=\"/products\"")).click();
     }
 
-    @Then("the user is redirected to the products page")
-    public void theUserIsRedirectedToTheProductsPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/products"));
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Automation Exercise - All Products");
-    }
-
     @When("the user clicks on cart button in the header")
     public void theUserClicksOnCartButtonInTheHeader() {
         driver.findElement(By.cssSelector("a[href=\"/view_cart\"")).click();
     }
 
-    @Then("the user is redirected to the cart button page")
-    public void theUserIsRedirectedToTheCartButtonPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/view_cart"));
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Automation Exercise - Checkout");
-    }
 
     @When("the user clicks on logout button in the header")
     public void theUserClicksOnLogoutButtonInTheHeader() {
         driver.findElement(By.cssSelector("a[href=\"/logout\"")).click();
     }
 
-    @Then("the user is on signup login page")
-    public void theUserIsOnSignupLoginPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/login"));
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Automation Exercise - Signup / Login");
-    }
 
     @And("the alternative user logs in")
-    public void theUserLogsIn() {
+    public void theAlternativeUserLogsIn() {
         driver.findElement(By.cssSelector("a[href=\"/login\"")).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/login"));
