@@ -94,7 +94,6 @@ public class headerSteps {
     @When("the user clicks on delete account button in the header")
     public void theUserClicksOnDeleteAccountButtonInTheHeader() {
         driver.findElement(By.cssSelector("a[href=\"/delete_account\"")).click();
-        driver.navigate().to("https://automationexercise.com/");
     }
 
 

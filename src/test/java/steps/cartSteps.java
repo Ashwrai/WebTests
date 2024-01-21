@@ -19,6 +19,7 @@ public class cartSteps {
     @Given("the user is on the cart page")
     public void theUserIsOnTheCartPage() {
         driver.get("https://automationexercise.com/view_cart");
+        driver.navigate().refresh();
     }
 
     @When("the cart is empty")

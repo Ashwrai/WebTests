@@ -20,6 +20,7 @@ public class productsSteps {
     @Given("the user is on the products page")
     public void theUserIsOnTheProductsPage() {
         driver.get("https://automationexercise.com/products");
+        driver.navigate().refresh();
     }
 
     @When("the user enters a search query in the search bar")

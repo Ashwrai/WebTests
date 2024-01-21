@@ -23,6 +23,7 @@ public class loginSteps {
     @Given("the user is in the log in page")
     public void theUserIsInTheLogInPage() {
         driver.navigate().to("https://automationexercise.com/login");
+        driver.navigate().refresh();
     }
 
     @When("the user enters email in the login email input")

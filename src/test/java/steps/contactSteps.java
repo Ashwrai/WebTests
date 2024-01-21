@@ -19,6 +19,7 @@ public class contactSteps {
     @Given("the user is in the contact page")
     public void theUserIsInTheContactPage() {
         driver.get("https://automationexercise.com/contact_us");
+        driver.navigate().refresh();
     }
 
     @When("the user enters valid email in the email input")

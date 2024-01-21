@@ -27,6 +27,7 @@ public class signUpSteps {
     @Given("the user is in the sign up page")
     public void theUserIsInTheSignUpPage() {
         driver.navigate().to("https://automationexercise.com/login");
+        driver.navigate().refresh();
     }
     @When("the user enters name in the name input")
     public void theUserEntersNameInTheNameInput() {

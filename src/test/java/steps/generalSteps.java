@@ -32,6 +32,7 @@ public class generalSteps {
     @Given("the user is on the product details page of a specific product")
     public void theUserIsOnTheProductDetailsPageOfASpecificProduct() {
         driver.get("https://automationexercise.com/product_details/1");
+        driver.navigate().refresh();
     }
 
     @And("the user is redirected to the home page")
