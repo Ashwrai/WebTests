@@ -1,8 +1,7 @@
 # Created by dani at 18/12/2023
 Feature: Sign up
 # This feature focuses on the web registration functionality, allowing users to create an account.
-# Scenarios include registration with a valid email, handling repeated emails, successful registration,
-# and detecting and handling incomplete registrations.
+# Scenarios include registration with a valid email, handling repeated emails and successful registration.
 
   @selenium
   Scenario: Invalid Email

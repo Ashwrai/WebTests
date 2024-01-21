@@ -1,6 +1,7 @@
 # Created by Carolina at 02/01/2024
 Feature: Products
-  # Enter feature description here
+  # A feature for managing and interacting with products on the webpage. Users can search for products, add them to
+  # the cart, and view detailed product information.
 
   Scenario: Search Product
     Given the user is on the products page

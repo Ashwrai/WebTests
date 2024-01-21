@@ -1,6 +1,8 @@
 # Created by Carolina at 03/01/2024
 Feature: Sidebar
-  # Enter feature description here
+  # Feature for navigating and exploring various categories and brands on the webpage using the sidebar. Users can click
+  # on specific categories to view subcategories and perform queries. Additionally, users can explore products
+  # associated with specific brands.
 
   Scenario: Category
     Given the user enters the webpage

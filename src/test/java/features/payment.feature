@@ -1,8 +1,7 @@
 # Created by Carolina at 03/01/2024
 Feature: Payment
-# This feature focuses on the cart payment addressing scenarios such as order confirmation, validation of empty payment
-# fields, and downloading invoices.
-
+# This feature focuses on the cart payment addressing scenarios such as order confirmation and validation of
+# empty payment fields.
 
   Scenario: Order confirmed
     Given the user enters the webpage

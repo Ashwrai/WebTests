@@ -1,7 +1,7 @@
 # Created by Carolina at 03/01/2024
 Feature: Review
 # This feature focuses on the product review section, addressing scenarios such as correctly submitting reviews, email
-# validation, handling incomplete fields, and changes in input fields.
+# validation and handling incomplete fields.
 
   Scenario: Successful Review
     Given the user is on the product details page of a specific product

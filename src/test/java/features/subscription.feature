@@ -1,6 +1,7 @@
 # Created by Carolina at 03/01/2024
 Feature: Subscription
-  # Enter feature description here
+  # Feature for managing user subscriptions to receive updates, newsletters, or other periodic content. Includes
+  # scenarios for successful subscription and handling invalid email addresses.
 
   Scenario: Subscription successfull
     Given the user enters the webpage

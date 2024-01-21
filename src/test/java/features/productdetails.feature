@@ -22,7 +22,6 @@ Feature: Product Details
     And the user is redirected to the cart button page
     And the amount is added the cart
 
-
   Scenario: Continue Shopping
     Given the user is on the product details page of a specific product
     And the user clicks on add to cart button
