@@ -4,48 +4,46 @@ Feature: Review
 # validation, handling incomplete fields, and changes in input fields.
 
   Scenario: Successful Review
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user enters a name in the name input
-    And the user enters an email in the email input
-    And the user enters a review in the review input
+    Given the user is on the product details page of a specific product
+    When the user enters name in the review
+    And the user enters email in the review
+    And the user enters message in the review
     And the user clicks the submit button
-    Then the message 'Thank you for your review' shows for a few seconds
-    And after a while, the message disappears, and the fields are cleared
+    Then the success message shows up
+    And wait '3000'
+    And the message disappears
 
   Scenario: Invalid Email
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user enters an invalid email in the email input
-    And the user clicks the submit button
-    Then the invalid email message appears
+    Given the user is on the product details page of a specific product
+    When the user enters name in the review
+    And the user enters invalid email in the review
+    And the user enters message in the review
+    Then the user clicks the submit button
+    And wait '1000'
+    And nothing happens
 
-  Scenario: Uncompleted Field
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user clicks the submit button
-    Then the error message 'Fill out this field.' appears
+  Scenario: Uncompleted Name Field
+    Given the user is on the product details page of a specific product
+    When the user enters email in the review
+    And the user enters message in the review
+    Then the user clicks the submit button
+    And wait '1000'
+    And nothing happens
 
-  Scenario: Field To Write The Name Changes
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user hasn't entered anything in the name input
-    Then the field shows 'Your Name' in it
-    When the user enters a name in the input
-    Then the input field displays the entered name
+  Scenario: Uncompleted Email Field
+    Given the user is on the product details page of a specific product
+    When the user enters name in the review
+    And the user enters message in the review
+    Then the user clicks the submit button
+    And wait '1000'
+    And nothing happens
 
-  Scenario: Field To Write The Email Changes
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user hasn't entered anything in the email input
-    Then the field shows 'Email Address' in it
-    When the user enters an email in the input
-    Then the input field displays the entered email
+  Scenario: Uncompleted Message Field
+    Given the user is on the product details page of a specific product
+    When the user enters email in the review
+    And the user enters message in the review
+    Then the user clicks the submit button
+    And wait '1000'
+    And nothing happens
 
-  Scenario: Field To Write The Review Changes
-    Given the user is on the product details page
-    And the user goes to the 'Write your review' form
-    When the user hasn't entered anything in the review input
-    Then the field shows 'Add Review Here!' in it
-    When the user enters a review in the input
-    Then the input field displays the entered review
+

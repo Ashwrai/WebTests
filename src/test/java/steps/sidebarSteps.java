@@ -24,14 +24,13 @@ public class sidebarSteps {
 
     @Then("the page display the subcategories from the selected category")
     public void thePageDisplayTheSubcategoriesFromTheSelectedCategory() {
-        WebElement subCategory = driver.findElement(By.className("panel-body"));
+        WebElement subCategory = driver.findElement(By.cssSelector("div[id=\"Women\""));
         Assert.assertNotNull(subCategory);
         Assert.assertTrue(subCategory.isDisplayed());
     }
 
     @When("the user clicks on a specific subcategory")
-    public void theUserClicksOnASpecificSubcategory() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
+    public void theUserClicksOnASpecificSubcategory() throws InterruptedException {
         driver.findElement(By.cssSelector("a[href=\"/category_products/1\"")).click();
     }
 

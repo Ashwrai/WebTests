@@ -3,38 +3,55 @@ Feature: Cart
 # This feature focuses on the functionality of the shopping cart on the website. The scenarios covered include an empty
 # cart, the removal of products from the cart, and the process of completing the purchase with or without being logged in.
   Scenario: Empty Cart
-    Given the user is on the website with an empty cart
-    When the user checks the cart by clicking on the cart option
-    Then the cart is empty
-    And the page shows 'Cart is empty! Click here to buy products.'
-    And the user can click on 'here' to be redirected to the 'Products' section
+    Given the user is on the cart page
+    When the cart is empty
+    And the user clicks on here link
+    And the user is redirected to the products page
 
   Scenario: Remove Product From The Cart
-    Given the user is looking his cart
-    And the user has products in the cart
-    When the user clicks the delete button of a specific product in the cart
-    Then the product is removed from the cart
+    Given the user enters the webpage
+    When the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    And the product added is shown
+    When the user clicks the delete button
+    And wait '1000'
+    Then the cart is empty
 
   Scenario: Checkout without having logged in
-    Given the user is looking his cart
-    And the user has products in the cart
-    When the user proceeds to checkout without logging in
-    Then the checkout popup screen appears showing 'Register / Login account to proceed on checkout.'
-    And the user can click on 'Register/Login' or 'Continue On Cart'
-    When the user clicks on 'Register/Login'
-    Then the user is redirected to the Signup/Login page
-    When the user clicks on 'Continue On Cart'
+    Given the user enters the webpage
+    When the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    When the user proceeds to checkout
+    Then the checkout popup screen appears
+    When the user clicks on Register Login option
+    And wait '1000'
+    Then the user is on signup login page
+
+  Scenario: Checkout without having logged in Continue On Cart
+    Given the user enters the webpage
+    When the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    Then the user proceeds to checkout
+    And wait '1000'
+    And the checkout popup screen appears
+    And the user clicks on Continue On Cart button
+    And wait '1000'
     Then the popup closes
-    And the user continues on 'Cart'
+    And the user continues on Cart page
 
   Scenario: Checkout with the user identified
-    Given the user is logged in
-    And the user is on his cart with some products
-    When the user proceeds to checkout
-    Then the checkout process starts showing the address and order details
-    And the user can add a comment about his order
-    When the user click on 'Place Order' button
-    Then the payment process starts
-
-
-
+    Given the user enters the webpage
+    When the user logs in
+    And the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    Then the user proceeds to checkout
+    And wait '1000'
+    And the user is in checkout page

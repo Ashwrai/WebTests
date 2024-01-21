@@ -28,6 +28,11 @@ public class generalSteps {
         driver.navigate().refresh();
     }
 
+    @Given("the user is on the product details page of a specific product")
+    public void theUserIsOnTheProductDetailsPageOfASpecificProduct() {
+        driver.get("https://automationexercise.com/product_details/1");
+    }
+
     @And("the user is redirected to the home page")
     public void theUserIsRedirectedToTheHomePage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -35,6 +40,7 @@ public class generalSteps {
         String title = driver.getTitle();
         Assert.assertEquals(title, "Automation Exercise");
     }
+
     @Then("the user is logged in")
     public void theUserIsLoggedIn() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -63,4 +69,9 @@ public class generalSteps {
         driver.findElement(By.cssSelector("a[data-qa=\"continue-button\"")).click();
     }
 
+    @And("wait {string}")
+    public void waitAMoment(String number) throws InterruptedException {
+        int wait = Integer.parseInt(number);
+        Thread.sleep(wait);
+    }
 }

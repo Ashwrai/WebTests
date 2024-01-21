@@ -5,24 +5,39 @@ Feature: Payment
 
 
   Scenario: Order confirmed
-    Given the user is in the payment page
-    When the user enters name in the name on card input
-    And the user enters card number in the card number input
-    And the user enters CVC in the CVC input
-    And the user enters the expiration month (number) in the MM input
-    And the user enters expiration year in the YYYY input
-    And the user clicks pay and confirm order button
-    Then the order is confirmed
-    And a confirmation screen is shown to the user
-    When the user clicks on 'Continue'
-    Then the user is redirected to the home screen
-
-  Scenario: Download Invoice
-    Given the user is in the confirmation screen
-    When the user clicks on 'Download Invoice'
-    Then the invoice downloads in the users computer
+    Given the user enters the webpage
+    When the user logs in
+    And the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    Then the user proceeds to checkout
+    And wait '1000'
+    And the user is in checkout page
+    And the user puts instructions in instructions input
+    Then the user clicks on Place Order button
+    And wait '1000'
+    And the user is at payment details page
+    And the user puts card details
+    And the user clicks on Pay and Confirm Order button
+    And wait '2000'
+    Then the user is at order placed page
+    And  the user clicks continue button
+    And the user is redirected to the home page
 
   Scenario: Payment field empty
-    Given the user is on the payment page
-    When the user attempts to submit the payment form with empty fields
-    Then an error message is displayed indicating the need to fill out the empty field
+    Given the user enters the webpage
+    When the user logs in
+    And the user adds a product
+    And wait '1000'
+    And the user clicks view cart button
+    And the user is redirected to the cart button page
+    Then the user proceeds to checkout
+    And wait '1000'
+    And the user is in checkout page
+    And the user puts instructions in instructions input
+    Then the user clicks on Place Order button
+    And wait '1000'
+    And the user clicks on Pay and Confirm Order button
+    And wait '2000'
+    And the user is at payment details page

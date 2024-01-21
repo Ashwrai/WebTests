@@ -135,15 +135,6 @@ public class signUpSteps {
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
-    @Then("the user stays at the same page")
-    public void theUserStaysAtTheSamePage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.urlToBe("https://automationexercise.com/signup"));
-        String title = driver.getTitle();
-        Assert.assertEquals(title, "Automation Exercise - Signup / Login");
-    }
-
-
     @And("the user clicks create account button")
     public void theUserClicksCreateAccountButton() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));

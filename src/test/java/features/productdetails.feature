@@ -3,24 +3,30 @@ Feature: Product Details
 # This feature focuses on product details, addressing scenarios such as modifying the quantity and adding products
 # to the cart.
 
-  Scenario: Modify Quantity
-    Given the user is in the product details of a specific product
-    When the user hovers over the number of products selected
-    Then up and down arrows appear next to the number
-    When you click on the up arrow
-    Then the quantity increases by 1
-    When you click on the down arrow
-    Then the quantity decreases by 1
+  Scenario: Add to cart
+    Given the user is on the product details page of a specific product
+    And the user clicks on add to cart button
+    And wait '1000'
+    Then the user clicks view cart button
+    And wait '1000'
+    And the user is redirected to the cart button page
+    And the product added is shown
 
-  Scenario: Add To Cart
-    Given the user is in the product details of a specific product
-    When the user clicks on the 'Add to cart' button
-    Then the pop-up shows 'Your product has been added to cart.'
-    And the user can click on the 'Continue Shopping' button
-    And the user can click on the 'View Cart' button
+  Scenario: More products
+    Given the user is on the product details page of a specific product
+    When the user enters the amount in the amount input
+    And the user clicks on add to cart button
+    And wait '1000'
+    Then the user clicks view cart button
+    And wait '1000'
+    And the user is redirected to the cart button page
+    And the amount is added the cart
 
-    When the user clicks on 'Continue Shopping' button
-    Then the pop-up closes
 
-    When the user clicks on 'View Cart' button
-    Then the user is redirected to the 'Cart' page
+  Scenario: Continue Shopping
+    Given the user is on the product details page of a specific product
+    And the user clicks on add to cart button
+    And wait '1000'
+    Then the user clicks continue shopping button
+    And wait '1000'
+    And the user stays at the product page

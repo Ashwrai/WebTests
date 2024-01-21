@@ -6,7 +6,8 @@ Feature: Sidebar
     Given the user enters the webpage
     When the user clicks on a specific category
     Then the page display the subcategories from the selected category
-    When the user clicks on a specific subcategory
+    And wait '1000'
+    And the user clicks on a specific subcategory
     Then the page updates showing the specific query
 
   Scenario: Brands
