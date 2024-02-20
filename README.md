@@ -12,7 +12,6 @@ This repository is dedicated to the practical assignment focused on testing a we
 - **Methodology**: The assignment follows the Behavior-Driven Development (BDD) methodology, emphasizing reusability of step definitions across different test scenarios.
 
 ### Repository Structure:
-
-- **Test Scripts**: Java files containing test scripts implemented using Selenium WebDriver and the Cucumber framework
-      - Features: Gherkin files that define the steps to take for each case scenario.
-      - Steps: Java files containing the implementation of each step of the Features.
+- **Test Scripts**: Java files containing test scripts implemented using Selenium WebDriver and the Cucumber framework.
+	- Features: Gherkin files that define the steps to take for each case scenario.
+	- Steps: Java files containing the implementation of each step of the Features.
