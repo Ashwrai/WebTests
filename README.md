@@ -11,7 +11,7 @@ This repository is dedicated to the practical assignment focused on testing a we
 - **Test Case Definition**: Test cases will be defined using Gherkin language, leveraging the Cucumber framework for Java.
 - **Methodology**: The assignment follows the Behavior-Driven Development (BDD) methodology, emphasizing reusability of step definitions across different test scenarios.
 
-# Repository Structure:
+### Repository Structure:
 
 - **Test Scripts**: Java files containing test scripts implemented using Selenium WebDriver and the Cucumber framework.
       - **Features**: Gherkin files that define the steps to take for each case scenario.
